@@ -1,10 +1,5 @@
-(*
-change values of 111111BBA for your question's code
-
-*)
-
-
-// Clomosy Question Code 111111BBA
+//Clomosy Etkinlik Soruları - 23V6BE2BIP
+//Değerlendirme Anketi - J14J6ECY93
 var 
   sub,GUID:String;
   clQuery:TCLJSONQuery;
@@ -18,7 +13,7 @@ var
   }
   void OnExamCompleted;
   {
-    Clomosy.DBCloudPostJSON(ftThreads,'[{"Tread_GUID":"'+clTemplateValues.Rec_Thread_GUID+'","Thread_Value_Float":"1","Thread_Value_Str":"'+clTemplateValues.Rec_Surexam_Name+'"}]');
+    Clomosy.DBCloudPostJSON(ftThreads,'[{"Thread_GUID":"'+clTemplateValues.Rec_Thread_GUID+'","Thread_Value_Float":"1","Thread_Value_Str":"'+clTemplateValues.Rec_Surexam_Name+'"}]');
     clTemplateValues.Rec_Thread_GUID = Clomosy.LastResultGUID;//yeni kayıt işlemi sonucunda gelen GUID'E5QXR2F8B6';
   }
   void OnExamCompleteError;
@@ -30,12 +25,12 @@ var
   Clomosy.LastResultGUID = '';
   clTemplateValues.Rec_Thread_GUID = '';
   
-  clQuery=Clomosy.DBCloudQueryWith(ftSurexams,'111111BBA','');
+  clQuery=Clomosy.DBCloudQueryWith(ftSurexams,'J14J6ECY93','');
   //ShowMessage('clquery:'+clQuery.getjsonstring);
   clTemplateValues.Rec_Surexam_GUID = clQuery.FieldByName('Surexam_GUID').AsString;
   clTemplateValues.Rec_Surexam_Name =clQuery.FieldByName('Surexam_Name').AsString;
   //Clomosy.DBCloudPostJSON(ftThreads,'[{"Thread_Value_Str":"'+clTemplateValues.Rec_Surexam_Name+'","Thread_Surexam_GUID":"'+clTemplateValues.Rec_Surexam_GUID+'"}]');
-  //clTemplateValues.Rec_Thread_GUID = Clomosy.LastResultGUID;
+  //clTemplateValues.Rec_Thread_GUID = Clomosy.LastResultGUID;//yeni kayıt işlemi sonucunda gelen GUID'E5QXR2F8B6';
   
    clQuery=Clomosy.DBCloudQueryWith(ftThreadsView,'','Surexam_GUID ='+QuotedStr(clTemplateValues.Rec_Surexam_GUID)+' AND Thread_Member_GUID ='+QuotedStr(Clomosy.AppUserGUID));
     if (clquery.Found )
